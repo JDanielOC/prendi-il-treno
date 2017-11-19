@@ -17,10 +17,10 @@ var database = firebase.database();
 var trainName = "";
 var destination = "";
 var firstTrain = 0;
-var frequency = "";
+var frequency = 0;
 
 // Capture Button Click
-$("#add-user").on("click", function () {
+$("#add-train").on("click", function () {
     // Don't refresh the page!
     event.preventDefault();
 
@@ -52,7 +52,7 @@ database.ref().on("value", function (snapshot) {
         console.log(snapshot.val().firstTrain);
         console.log(snapshot.val().frequency);
 
-        $("#TrainName-display").text(snapshot.val().trainName);
+        $("#trainName-display").text(snapshot.val().trainName);
         $("#destination-display").text(snapshot.val().destination);
         $("#firstTrain-display").text(snapshot.val().firstTrain);
         $("#frequency-display").text(snapshot.val().frequency);
