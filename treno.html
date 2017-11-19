@@ -5,37 +5,85 @@
     <title>Prendi il Treno</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
 
-<body>
-<div class="container">
-    <div class="jumbotron">
-        <h1>Prendi il Treno</h1>
-        <p>Allora. It's train time!</p>
-    </div>
-    <p>This is some text.</p>
-    <p>This is another text.</p>
-</div>
-<form>
-    <input>
-</form>
-</body>
-<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js">
-</script>
-<script>
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyC1l8ng_f-j8pThYt6rjFgpeX8X3dVRo4s",
-        authDomain: "prendiiltreno.firebaseapp.com",
-        databaseURL: "https://prendiiltreno.firebaseio.com",
-        projectId: "prendiiltreno",
-        storageBucket: "prendiiltreno.appspot.com",
-        messagingSenderId: "106708772058"
-    };
-    firebase.initializeApp(config);
-</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css" </head>
+
+    <body>
+        <div class="container">
+            <div class="jumbotron">
+                <h1>Prendi il Treno</h1>
+                <p>Allora. It's train time!</p>
+            </div>
+            <p>This is some text.</p>
+            <p>This is another text.</p>
+        </div>
+        <div class="container">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Current Train Schedule</h3>
+                </div>
+                <div class="panel-body">
+
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Add Train</h3>
+                </div>
+                <div class="container">
+
+                    <div class="panel-body">
+
+                        <form>
+                            <div class="form-group row">
+                                <label for="example-text-input" class="col-2 col-form-label">Train Name</label>
+                                <div class="col-12">
+                                    <input class="form-control" type="text" value="Metrolink" id="example-text-input">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="example-search-input" class="col-2 col-form-label">Destination</label>
+                                <div class="col-10">
+                                    <input class="form-control" type="text" value="Cucamonga" id="example-text-input">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="example-time-input" class="col-2 col-form-label">First Train Time</label>
+                                <div class="col-10">
+                                    <input class="form-control" type="time" value="13:45:00" id="example-time-input">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="example-time-input" class="col-2 col-form-label">Frequency</label>
+                                <div class="col-10">
+                                    <input class="form-control" type="time" value="13:45:00" id="example-time-input">
+                                </div>
+                            </div>
+
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js">
+    </script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyC1l8ng_f-j8pThYt6rjFgpeX8X3dVRo4s",
+            authDomain: "prendiiltreno.firebaseapp.com",
+            databaseURL: "https://prendiiltreno.firebaseio.com",
+            projectId: "prendiiltreno",
+            storageBucket: "prendiiltreno.appspot.com",
+            messagingSenderId: "106708772058"
+        };
+        firebase.initializeApp(config);
+    </script>
 
 </html>
