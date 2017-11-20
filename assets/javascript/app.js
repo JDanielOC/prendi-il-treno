@@ -24,13 +24,14 @@ $("#add-train").on("click", function () {
     // Don't refresh the page!
     event.preventDefault();
 
-    // YOUR TASK!!!
+    // User Input
     trainName = $("#trainName-input").val().trim();
     destination = $("#destination-input").val().trim();
     firstTrain = $("#firstTrain-input").val().trim();
     frequency = $("#frequency-input").val().trim();
+
     // Code in the logic for storing and retrieving the most recent user.
-    database.ref().set({
+    database.ref().push({
         trainName: trainName,
         destination: destination,
         firstTrain: firstTrain,
