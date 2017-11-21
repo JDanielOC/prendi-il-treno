@@ -51,22 +51,25 @@ $("#add-train").on("click", function () {
   
 // database listener - .on("value")
 
-database.ref().on("value", function (snapshot) {
-        console.log(snapshot.val());
+database.ref().on("child_added", function (childSnapshot, prevChildKey) {
+        console.log(childSnapshot.val());
 
-        console.log(snapshot.val().trainName);
-        console.log(snapshot.val().destination);
-        console.log(snapshot.val().firstTrain);
-        console.log(snapshot.val().frequency);
-
-        $("#trainName-display").text(snapshot.val().trainName);
-        $("#destination-display").text(snapshot.val().destination);
-        $("#firstTrain-display").text(snapshot.val().firstTrain);
-        $("#frequency-display").text(snapshot.val().frequency);
-
-        //watch the class video to fill in missing parts
+var trainName = childSnapshot.val().trainName;
+var destination = childSnapshot.val().destination;
+var firstTrain = childSnapshot.val().firstTrain;
+var frequency = childSnapshot.val().frequency;
 
 
+
+
+
+
+//Add time calculations here...
+
+var nextArrival = "Next Train";
+var minLeft = 0;
+
+$("#trainTable > tbody").append("<tr><td>" + trainName + "</td><td>" + destination + "</td><td>" + firstTrain + "</td><td>" + frequency + "</td><td>" + nextArrival + "</td><td>" + minLeft + "</td></tr>");
 
 
 
