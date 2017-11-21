@@ -1,5 +1,4 @@
-
-    // Initialize Firebase
+// Initialize Firebase
     var config = {
         apiKey: "AIzaSyC1l8ng_f-j8pThYt6rjFgpeX8X3dVRo4s",
         authDomain: "prendiiltreno.firebaseapp.com",
@@ -18,12 +17,13 @@ var database = firebase.database();
 $("#add-train").on("click", function () {
             event.preventDefault();
 
-    // User Input
+// User Input
   var trainName = $("#trainName-input").val().trim();
   var destination = $("#destination-input").val().trim();
   var firstTrain = $("#firstTrain-input").val().trim();
   var frequency = $("#frequency-input").val().trim();
 
+//Create newTrain variable with train parameters
   var newTrain = {
       trainName: trainName,
       destination: destination,
@@ -31,6 +31,7 @@ $("#add-train").on("click", function () {
       frequency: frequency
   };
 
+//push data to database object
   database.ref().push(newTrain);
     
   console.log(newTrain.trainName);
@@ -40,7 +41,7 @@ $("#add-train").on("click", function () {
 
   alert("Thank you for adding a new train to the schedule!");
 
-  // clear form
+  // clear form on submission
 
   $("#trainName-input").val("");
   $("#destination-input").val("");
@@ -59,26 +60,35 @@ var destination = childSnapshot.val().destination;
 var firstTrain = childSnapshot.val().firstTrain;
 var frequency = childSnapshot.val().frequency;
 
+//calculations of time
+var firstTimeConverted = moment(firstTrain, "hh:mm:ss a").subtract(1, "years");
+console.log(firstTimeConverted);
+
+var currentTime = moment();
+console.log("Current Time: " + moment(currentTime).format("hh:mm:ss a"));
+
+// Difference between the times
+var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+console.log("DIFFERENCE IN TIME: " + diffTime);
+
+// Time apart (remainder)
+var minLeft = diffTime % frequency;
+console.log(minLeft);
+
+// Minute Until Train
+var trainRemainder = frequency - minLeft;
+console.log("MINUTES TILL TRAIN: " + trainRemainder);
+
+// Next Train
+var nextArrival = moment().add(trainRemainder, "minutes");
+console.log("ARRIVAL TIME: " + moment(nextArrival).format("hh:mm"));
 
 
 
-
-
-//Add time calculations here...
-
-var nextArrival = "Next Train";
-var minLeft = 0;
-
-$("#trainTable > tbody").append("<tr><td>" + trainName + "</td><td>" + destination + "</td><td>" + firstTrain + "</td><td>" + frequency + "</td><td>" + nextArrival + "</td><td>" + minLeft + "</td></tr>");
-
-
-
+$("#trainTable > tbody").append("<tr><td>" + trainName + "</td><td>" + destination + "</td><td>" + moment(firstTrain,"HH:mm").format("hh:mm A") + "</td><td>" + frequency + "</td><td>" + moment(nextArrival).format("hh:mm A") + "</td><td>" + trainRemainder + "</td></tr>");
 
 
     },
-
-
-
 
     // Create Error Handling
 
