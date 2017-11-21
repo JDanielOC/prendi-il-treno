@@ -14,36 +14,42 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
-var trainName = "";
-var destination = "";
-var firstTrain = 0;
-var frequency = 0;
-
 // Capture Button Click
 $("#add-train").on("click", function () {
-    // Don't refresh the page!
-    event.preventDefault();
+            event.preventDefault();
 
     // User Input
-    trainName = $("#trainName-input").val().trim();
-    destination = $("#destination-input").val().trim();
-    firstTrain = $("#firstTrain-input").val().trim();
-    frequency = $("#frequency-input").val().trim();
+  var trainName = $("#trainName-input").val().trim();
+  var destination = $("#destination-input").val().trim();
+  var firstTrain = $("#firstTrain-input").val().trim();
+  var frequency = $("#frequency-input").val().trim();
 
-    // Code in the logic for storing and retrieving the most recent user.
-    database.ref().push({
-        trainName: trainName,
-        destination: destination,
-        firstTrain: firstTrain,
-        frequency: frequency
-    })
+  var newTrain = {
+      trainName: trainName,
+      destination: destination,
+      firstTrain: firstTrain,
+      frequency: frequency
+  };
 
-    // Don't forget to handle the "initial load"  <--- what??????
+  database.ref().push(newTrain);
+    
+  console.log(newTrain.trainName);
+  console.log(newTrain.destination);
+  console.log(newTrain.firstTrain);
+  console.log(newTrain.frequency);
+
+  alert("Thank you for adding a new train to the schedule!");
+
+  // clear form
+
+  $("#trainName-input").val("");
+  $("#destination-input").val("");
+  $("#firstTrain-input").val("");
+  $("#frequency-input").val("");
 
 });
-
-
-// Create Firebase "watcher" Hint: .on("value")
+  
+// database listener - .on("value")
 
 database.ref().on("value", function (snapshot) {
         console.log(snapshot.val());
