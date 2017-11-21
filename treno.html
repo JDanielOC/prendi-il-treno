@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
@@ -16,7 +17,7 @@
             <h1>Prendi il Treno</h1>
             <p>Allora. It's train time!</p>
         </div>
-        <p>This is some train.</p>
+
     </div>
 
     <div class="container">
@@ -26,7 +27,7 @@
             </div>
             <div class="panel-body" id="newTrain">
                 <table class="table table-hover" id='trainTable'>
-                    <thead>
+                    <thead id='tableHead'>
                         <tr>
                             <th>Train Name</th>
                             <th>Destination</th>
@@ -35,13 +36,10 @@
                             <th>Next Arrival</th>
                             <th>Minutes Away</th>
                         </tr>
-                        
+
                     </thead>
-                    <tbody>
-                        <!-- <td id="trainName-display"></td>
-                        <td id="destination-display"></td>
-                        <td id="firstTrain-display"></td>
-                        <td id="frequency-display"></td> -->
+                    <tbody id="tableBody">
+                        <!--dynamic data from firebase is placed here.-->
                     </tbody>
                 </table>
 
@@ -53,6 +51,7 @@
             </div>
             <div class="container">
                 <div class="panel-body">
+                    <!-- Add form to input train information -->
                     <form>
                         <div class="form-group row">
                             <label for="example-text-input" class="col-2 col-form-label">Train Name</label>
@@ -85,6 +84,8 @@
         </div>
     </div>
 </body>
+
+<!-- script sources/momentjs/jquery/bootstrap/firebase/localfile -->
 <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

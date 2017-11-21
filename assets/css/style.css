@@ -1,3 +1,22 @@
 .container {
     max-width: 100%;
 }
+
+.jumbotron {
+    margin-top: 20px;
+    background-image: url("../images/metrotrain.jpg");
+    background-size: 100%;
+    text-align: right;
+    color: white;
+}
+
+.jumbotron,
+.panel-title,
+{
+    font-family: 'Dosis', sans-serif;
+}
+
+#tableHead,
+#tableBody {
+    font-family: 'Space Mono', monospace;
+}
